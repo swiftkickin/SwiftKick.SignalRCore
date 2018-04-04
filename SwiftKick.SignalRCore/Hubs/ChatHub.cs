@@ -10,7 +10,7 @@ namespace SwiftKick.SignalRCore.Hubs
     {
         public void BroadcastMessage(string message)
         {
-            Clients.All.InvokeAsync("writeMessage", message);
+            Clients.All.SendAsync("writeMessage", message);
         }
     }
 }

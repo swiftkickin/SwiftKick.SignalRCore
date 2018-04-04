@@ -1,4 +1,4 @@
-﻿import * as SignalR from "@aspnet/signalr-client";
+﻿import * as SignalR from "@aspnet/signalr";
 
 let btn = document.getElementById("btnSend");
 btn.addEventListener("click", () => sendMessage());
