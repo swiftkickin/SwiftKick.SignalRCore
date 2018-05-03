@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var SignalR = require("@aspnet/signalr-client");
+var SignalR = require("@aspnet/signalr");
 var btn = document.getElementById("btnSend");
 btn.addEventListener("click", function () { return sendMessage(); });
 function sendMessage() {
