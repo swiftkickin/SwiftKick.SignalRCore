@@ -9,7 +9,10 @@ function sendMessage(): any {
     connection.invoke("broadcastMessage", val);
 }
 
-var connection = new SignalR.HubConnection("/chatHub");
+var connection = new SignalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .configureLogging(SignalR.LogLevel.Information)
+    .build();
 
 connection.on("writeMessage",
     (message) => {
