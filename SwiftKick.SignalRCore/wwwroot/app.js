@@ -8,7 +8,10 @@ function sendMessage() {
     var val = messageToSend.value;
     connection.invoke("broadcastMessage", val);
 }
-var connection = new SignalR.HubConnection("/chatHub");
+var connection = new SignalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .configureLogging(SignalR.LogLevel.Information)
+    .build();
 connection.on("writeMessage", function (message) {
     var el = document.getElementById("messages");
     var li = document.createElement("li");
