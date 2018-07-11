@@ -16,7 +16,10 @@ namespace SwiftKick.SignalRCore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var azureConnectionString =
+                "TODO";
             services.AddSignalR().AddMessagePackProtocol();
+            //services.AddSignalR().AddMessagePackProtocol().AddAzureSignalR(azureConnectionString);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,6 +33,7 @@ namespace SwiftKick.SignalRCore
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSignalR(configure => { configure.MapHub<ChatHub>("/chatHub"); });
+            //app.UseAzureSignalR(configure => { configure.MapHub<ChatHub>("/chatHub"); });
         }
     }
 }
