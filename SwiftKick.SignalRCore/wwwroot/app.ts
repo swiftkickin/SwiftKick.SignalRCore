@@ -1,4 +1,5 @@
 ﻿import * as SignalR from "@aspnet/signalr";
+import * as msgPack from "@aspnet/signalr-protocol-msgpack";
 
 let btn = document.getElementById("btnSend");
 btn.addEventListener("click", () => sendMessage());
@@ -10,7 +11,7 @@ function sendMessage(): any {
 }
 
 var connection = new SignalR.HubConnectionBuilder()
-    .withUrl("/chatHub")
+    .withUrl("/chatHub").withHubProtocol(new msgPack.MessagePackHubProtocol())
     .configureLogging(SignalR.LogLevel.Information)
     .build();
 
